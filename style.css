@@ -1,0 +1,14 @@
+body {
+    margin: auto;
+    
+    width: 250px;
+}
+
+#lista {
+    background-color: rgb(74, 74, 226);
+}
+
+.box:checked + label {
+    color: #c8c8c8;
+    text-decoration-line: line-through;
+}

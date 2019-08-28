@@ -11,17 +11,18 @@ function renderTodos() {
         var todoItem = document.createElement('input')  // cria e define o checkbox
         todoItem.type = "checkbox"
         todoItem.id = todos.indexOf(todo)
+        todoItem.className = 'box'
         var itemLabel = document.createElement('label') // cria e define o label para o checkbox
         itemLabel.htmlFor = todoItem.id
         itemLabel.innerHTML = todo
 
+       
+        
         listElement.appendChild(todoItem)
         listElement.appendChild(itemLabel)
         list.appendChild(listElement)
 
     }
-
-    
 }
 
 function addItem() {
