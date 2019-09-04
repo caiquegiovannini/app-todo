@@ -5,8 +5,8 @@ const listCompleto = document.getElementById('lista-comp')
 const contFazer = document.getElementById('fazer')
 const contFeitas = document.getElementById('feitas')
 
-const todos = ['Fazer café', 'Estudar', 'Dormir']
-const finalizados = []
+const todos = JSON.parse(localStorage.getItem('list_todos')) || []
+const finalizados = JSON.parse(localStorage.getItem('list_finalizados')) || []
 
 function renderTodos() {
     listIncompleto.innerHTML = ''
@@ -65,18 +65,26 @@ function addItem() {
     todos.push(inputElement.value)
     renderTodos()
     inputElement.value=''
+    saveToStorage()
 }
 
 function marcarTarefa(pos) {
     finalizados.push(todos[pos])
     todos.splice(pos, 1)
     renderTodos()
+    saveToStorage()
 }
 
 function desmarcarTarefa(pos) {
     todos.push(finalizados[pos])
     finalizados.splice(pos, 1)
     renderTodos()
+    saveToStorage()
+}
+
+function saveToStorage() {
+    localStorage.setItem('list_todos', JSON.stringify(todos))
+    localStorage.setItem('list_finalizados', JSON.stringify(finalizados))
 }
 
 buttonElement.onclick = addItem
