@@ -23,7 +23,7 @@ function renderTodos() {
             todoBox.id = `i${posTodo}`
             let itemLabel = document.createElement('label') // cria e define o label para o checkbox
             itemLabel.innerHTML = todo
-            let deleteButton = document.createElement('i')
+            let deleteButton = document.createElement('i') // cria botão de deletar
             deleteButton.classList.add('material-icons')
             deleteButton.innerHTML = 'delete'
 
@@ -34,10 +34,12 @@ function renderTodos() {
             if (list == finalizados) {
                 todoBox.checked = true
                 todoBox.setAttribute('onclick', `desmarcarTarefa(${posTodo})`)
+                deleteButton.setAttribute('onclick', `deleteTodo(finalizados, ${posTodo})`)
                 listCompleto.appendChild(listElement)
             } else if (list == todos) {
                 todoBox.checked = false
                 todoBox.setAttribute('onclick', `marcarTarefa(${posTodo})`)
+                deleteButton.setAttribute('onclick', `deleteTodo(todos, ${posTodo})`)
                 listIncompleto.appendChild(listElement)
             }
         }
