@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>To-Do</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,19 +15,19 @@
         
             <section id="lista" class="lista">
                 <div>
-                    <h3 id="fazer"></h3>
+                    <h3 id="todos">Tarefas</h3>
                     <ul id="lista-incomp" class="tarefas"></ul>
                 </div>
 
                 <div>
-                    <h3 id="feitas"></h3>
+                    <h3 id="finalizados">Finalizadas</h3>
                     <ul id="lista-comp" class="tarefas"></ul>
                 </div>
             </section>
         
         <section class="input">
-            <input type="text" name="novoItem" id="novoItem" placeholder="Adicione um item à lista">
-            <input type="button" value="Adicionar" id="add">
+            <input type="text" maxlength="35" id="novoItem" placeholder="Adicione um item à lista">
+            <button id="add">Adicionar</button>
         </section>
     </div>
     
