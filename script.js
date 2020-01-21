@@ -1,16 +1,19 @@
 const inputElement = document.getElementById('novoItem')
 const buttonElement = document.getElementById('add')
-const listIncompleto = document.getElementById('lista-incomp')
-const listCompleto = document.getElementById('lista-comp')
-const listContagem = document.querySelectorAll('#lista div h3')
+const listaIncompleto = document.getElementById('lista-incomp')
+const listaCompleto = document.getElementById('lista-comp')
+const listaTarefasCont = document.getElementById('todos')
+const listaFeitasCont = document.getElementById('finalizados')
 
 const todos = JSON.parse(localStorage.getItem('list_todos')) || []
 const finalizados = JSON.parse(localStorage.getItem('list_finalizados')) || []
 const lists = [todos, finalizados]
 
 function renderTodos() {
-    listIncompleto.innerHTML = ''
-    listCompleto.innerHTML = ''
+    listaIncompleto.innerHTML = ''
+    listaCompleto.innerHTML = ''
+    listaFeitasCont.innerHTML = ''
+    listaTarefasCont.innerHTML = ''
 
     for (let list of lists) {
         for (let todo of list) {
@@ -35,16 +38,28 @@ function renderTodos() {
                 todoBox.checked = true
                 todoBox.setAttribute('onclick', `desmarcarTarefa(${posTodo})`)
                 deleteButton.setAttribute('onclick', `deleteTodo(finalizados, ${posTodo})`)
-                listCompleto.appendChild(listElement)
+                listaCompleto.appendChild(listElement)
             } else if (list == todos) {
                 todoBox.checked = false
                 todoBox.setAttribute('onclick', `marcarTarefa(${posTodo})`)
                 deleteButton.setAttribute('onclick', `deleteTodo(todos, ${posTodo})`)
-                listIncompleto.appendChild(listElement)
+                listaIncompleto.appendChild(listElement)
             }
         }
 
-       // fazer logica da contagem das listas
+        if(list.length == 1) {
+            if (list == finalizados) {
+                listaFeitasCont.innerHTML = `${list.length} Finalizada`
+            } else {
+                listaTarefasCont.innerHTML = `${list.length} Tarefa`
+            }
+        } else {
+            if (list == finalizados) {
+                listaFeitasCont.innerHTML = `${list.length} Finalizadas`
+            } else {
+                listaTarefasCont.innerHTML = `${list.length} Tarefas`
+            }
+        }
     }
 }
 

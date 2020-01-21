@@ -16,6 +16,13 @@ body {
     position: relative;
 }
 
+.lista {
+    background-color: rgb(74, 74, 226);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
 h1 {
     background-color: blueviolet;
     text-align: center;
@@ -30,13 +37,6 @@ h3 {
     margin: auto;
     padding: 3px 8px;
     font-size: 20px;
-}
-
-.lista {
-    background-color: rgb(74, 74, 226);
-    border-radius: 0 0 10px 10px;
-    margin-bottom: 10px;
-    position: relative;
 }
 
 .item-lista {
@@ -63,10 +63,14 @@ h3 {
 
 i {
     text-decoration: none;
-    color: rgb(68, 2, 2);
+    color: rgb(43, 43, 170);
     position: absolute;
     right: 5px;
     cursor: pointer;
+}
+
+i:hover {
+    color: rgb(105, 5, 5);
 }
 
 /* INPUT */
